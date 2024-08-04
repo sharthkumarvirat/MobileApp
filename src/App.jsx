@@ -89,10 +89,10 @@ function App() {
           backgroundColor: toggleTheme ? darkTheme.palette.background.default : lightTheme.palette.background.default,
           minHeight: '100vh'
         }}>
-          <BrowserRouter basename='/'>
+          <BrowserRouter basename='/MobileApp'>
             <Suspense fallback={<LoadingComponent />}>
               <Routes>
-                <Route path='/' element={<LoginComponent toggleTheme={toggleTheme} setToggleTheme={setToggleTheme} />} />
+                <Route path='/login' element={<LoginComponent toggleTheme={toggleTheme} setToggleTheme={setToggleTheme} />} />
                 <Route path='/register' element={<RegisterComponent toggleTheme={toggleTheme} setToggleTheme={setToggleTheme} />} />
                 <Route element={<SideBar isMobile={isMobile} setIsMobile={setIsMobile} toggleTheme={toggleTheme} setToggleTheme={setToggleTheme} />}>
                  <Route path='/products' element={<JobPortal/>} />
