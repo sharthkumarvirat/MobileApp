@@ -175,7 +175,7 @@ export default function SideBar({ isMobile, setIsMobile, toggleTheme, setToggleT
                                 </IconButton>
                             </Tooltip>
                             <Tooltip title="logout">
-                                <Link to='/login'>
+                                <Link to='/'>
                                     <IconButton>
                                         <Suspense >
                                             <FiLogOut size={28} />
@@ -219,7 +219,7 @@ export default function SideBar({ isMobile, setIsMobile, toggleTheme, setToggleT
                                 </IconButton>
                             </Tooltip>
                             <Tooltip title="logout">
-                                <Link to='/login'>
+                                <Link to='/'>
                                     <IconButton>
                                         <Suspense >
                                             <FiLogOut size={28} />

@@ -92,7 +92,7 @@ function App() {
           <BrowserRouter basename='/MobileApp'>
             <Suspense fallback={<LoadingComponent />}>
               <Routes>
-                <Route path='/login' element={<LoginComponent toggleTheme={toggleTheme} setToggleTheme={setToggleTheme} />} />
+                <Route path='/' element={<LoginComponent toggleTheme={toggleTheme} setToggleTheme={setToggleTheme} />} />
                 <Route path='/register' element={<RegisterComponent toggleTheme={toggleTheme} setToggleTheme={setToggleTheme} />} />
                 <Route element={<SideBar isMobile={isMobile} setIsMobile={setIsMobile} toggleTheme={toggleTheme} setToggleTheme={setToggleTheme} />}>
                  <Route path='/products' element={<JobPortal/>} />
