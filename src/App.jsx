@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import './App.css';
 import LoadingComponent from './SharedComponents/LoadingComponent';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Wikipedia from './Components/Wikipedia';
 
 // Lazy load components
 const LoginComponent = lazy(() => import('./Components/LoginComponent'));
@@ -47,7 +48,7 @@ function App() {
     palette: {
       mode: 'light',
       background: {
-        default: '#f1f5f9',
+        default: '#f3f4f6',
       },
       primary: {
         main: '#00D2A4',
@@ -99,6 +100,7 @@ function App() {
                  <Route path='/profile' element={<MyProfile/>} />
                  <Route path='/dashboard' element={<DashbordComponent toggleTheme={toggleTheme}  isMobile={isMobile} />} />
                  <Route path='/create' element={<CreateProfile/>} />
+                 <Route path='/wiki' element={<Wikipedia isMobile={isMobile} />} />
                 </Route>
               </Routes>
             </Suspense>

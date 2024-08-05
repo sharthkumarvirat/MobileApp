@@ -12,8 +12,23 @@ import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Controller, useForm } from 'react-hook-form';
+// import { styled } from '@mui/material/styles';
+// import Button from '@mui/material/Button';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 const MdDeleteIcon = lazy(() => import('react-icons/md').then(module => ({ default: module.MdDelete })));
+
+const VisuallyHiddenInput = styled('input')({
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'inset(50%)',
+    height: 1,
+    overflow: 'hidden',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    whiteSpace: 'nowrap',
+    width: 1,
+});
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -135,11 +150,6 @@ export default function CreateProfile() {
                 <DialogContent dividers>
                     <ModelContent />
                 </DialogContent>
-                <DialogActions>
-                    <Button autoFocus onClick={handleClose}>
-                        Save changes
-                    </Button>
-                </DialogActions>
             </BootstrapDialog>
 
             <Dialog
@@ -178,21 +188,22 @@ const ModelContent = () => {
     };
     return (
         <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} autoComplete='off' noValidate>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
                         <Controller
-                            name="currentPassword"
+                            name="name"
                             control={control}
                             defaultValue=""
                             render={({ field }) => (
                                 <TextField
                                     {...field}
-                                    label="Current Password"
+                                    label="Name"
                                     variant="outlined"
+                                    required
                                     fullWidth
-                                    error={!!errors.currentPassword}
-                                    helperText={errors.currentPassword ? 'Current Password is required' : ''}
+                                    error={!!errors.name}
+                                    helperText={errors.nmae ? 'name is required' : ''}
                                 />
                             )}
                             rules={{ required: true }}
@@ -200,40 +211,36 @@ const ModelContent = () => {
                     </Grid>
                     <Grid item xs={12}>
                         <Controller
-                            name="newPassword"
+                            name="description"
                             control={control}
                             defaultValue=""
                             render={({ field }) => (
                                 <TextField
                                     {...field}
-                                    label="New Password"
+                                    label="Description"
                                     variant="outlined"
                                     fullWidth
-
-                                    error={!!errors.newPassword}
-                                    helperText={errors.newPassword ? 'New Password is required' : ''}
+                                    multiline
+                                    required
+                                    rows={3}
+                                    error={!!errors.description}
+                                    helperText={errors.description ? 'description is required' : ''}
                                 />
                             )}
                             rules={{ required: true }}
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <Controller
-                            name="confirmPassword"
-                            control={control}
-                            defaultValue=""
-                            render={({ field }) => (
-                                <TextField
-                                    {...field}
-                                    label="Confirm Password"
-                                    variant="outlined"
-                                    fullWidth
-                                    error={!!errors.confirmPassword}
-                                    helperText={errors.confirmPassword ? 'Confirm Password is required' : ''}
-                                />
-                            )}
-                            rules={{ required: true }}
-                        />
+                        <Button
+                            component="label"
+                            role={undefined}
+                            variant="contained"
+                            tabIndex={-1}
+                            startIcon={<CloudUploadIcon />}
+                        >
+                            Upload file
+                            <VisuallyHiddenInput type="file" />
+                        </Button>
                     </Grid>
                     <Grid item xs={12} display="flex" justifyContent="flex-end">
                         <Button variant="outlined" color="primary" type="submit" size='large' className='rounded-pill shadow-none'>

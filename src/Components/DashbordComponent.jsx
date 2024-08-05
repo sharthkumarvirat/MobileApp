@@ -76,7 +76,7 @@ export default function DashbordComponent({ toggleTheme, isMobile }) {
                 {
                     container.map((items, index) => {
                         return (
-                            <div key={index} className={`${isMobile ? 'w-full h-2/4' : 'w-full'}  w-full rounded-lg bg-[#FFFFFF] p-4 mt-6`}>
+                            <div key={index} className={`${isMobile ? 'w-full h-2/4' : 'w-full'}  w-full rounded-lg bg-[#ffffff] p-4 mt-6`}>
                                 <div className='flex ites-center justify-between'>
                                     <div className='flex items-center gap-3 mb-5'>
                                         <div>

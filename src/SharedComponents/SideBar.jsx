@@ -16,6 +16,7 @@ import { Stack, Tooltip } from '@mui/material';
 import { Link, Outlet } from 'react-router-dom';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { MdCreateNewFolder, MdOutlineProductionQuantityLimits } from 'react-icons/md';
+import { FaWikipediaW } from 'react-icons/fa';
 
 // Dynamically import the icons
 const FaArrowLeft = lazy(() => import('react-icons/fa').then(module => ({ default: module.FaArrowLeft })));
@@ -82,10 +83,24 @@ export default function SideBar({ isMobile, setIsMobile, toggleTheme, setToggleT
                                         <ListItemButton className='focus:!bg-[#3d9f80] border-none'>
                                             <ListItemIcon>
                                                 <Suspense >
-                                                    <FaHome size={22} />
+                                                    <FaHome size={25} />
                                                 </Suspense>
                                             </ListItemIcon>
                                             <ListItemText primary="Home" />
+                                        </ListItemButton>
+                                    </ListItem>
+                                </Link>
+                            </Stack>
+                            <Stack>
+                                <Link to='/wiki'>
+                                    <ListItem>
+                                        <ListItemButton className='focus:!bg-[#3d9f80] border-none'>
+                                            <ListItemIcon>
+                                                <Suspense>
+                                                <FaWikipediaW size={25} />
+                                                </Suspense>
+                                            </ListItemIcon>
+                                            <ListItemText primary="Wikipedia" />
                                         </ListItemButton>
                                     </ListItem>
                                 </Link>
@@ -96,7 +111,7 @@ export default function SideBar({ isMobile, setIsMobile, toggleTheme, setToggleT
                                         <ListItemButton className='focus:!bg-[#3d9f80] border-none'>
                                             <ListItemIcon>
                                                 <Suspense >
-                                                    <MdOutlineProductionQuantityLimits />
+                                                    <MdOutlineProductionQuantityLimits size={25} />
                                                 </Suspense>
                                             </ListItemIcon>
                                             <ListItemText primary="Products" />
@@ -110,7 +125,7 @@ export default function SideBar({ isMobile, setIsMobile, toggleTheme, setToggleT
                                         <ListItemButton className='focus:!bg-[#3d9f80] !border-0'>
                                             <ListItemIcon>
                                                 <Suspense >
-                                                    <CgProfile size={22} />
+                                                    <CgProfile size={25} />
                                                 </Suspense>
                                             </ListItemIcon>
                                             <ListItemText primary="Profile" />
@@ -125,7 +140,7 @@ export default function SideBar({ isMobile, setIsMobile, toggleTheme, setToggleT
                                             <ListItemIcon>
                                                 <Suspense>
                                                     {/* <FaEnvelope size={22} /> */}
-                                                    <MdCreateNewFolder size={22} />
+                                                    <MdCreateNewFolder size={25} />
                                                 </Suspense>
                                             </ListItemIcon>
                                             <ListItemText primary="Create" />
@@ -133,24 +148,13 @@ export default function SideBar({ isMobile, setIsMobile, toggleTheme, setToggleT
                                     </ListItem>
                                 </Link>
                             </Stack>
-                            <Stack>
-                                <ListItem>
-                                    <ListItemButton className='focus:!bg-[#3d9f80] border-none'>
-                                        <ListItemIcon>
-                                            <Suspense>
-                                                <FaCog size={22} />
-                                            </Suspense>
-                                        </ListItemIcon>
-                                        <ListItemText primary="Settings" />
-                                    </ListItemButton>
-                                </ListItem>
-                            </Stack>
+
                             <Stack>
                                 <ListItem>
                                     <ListItemButton className='focus:!bg-[#3d9f80] border-none' >
                                         <ListItemIcon>
                                             <Suspense >
-                                                <FaQuestionCircle size={22} />
+                                                <FaQuestionCircle size={25} />
                                             </Suspense>
                                         </ListItemIcon>
                                         <ListItemText primary="Help" />
@@ -202,7 +206,7 @@ export default function SideBar({ isMobile, setIsMobile, toggleTheme, setToggleT
                             </Suspense>
                         </IconButton>
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            News
+                          Demo
                         </Typography>
                         <Stack direction={'row'} justifyContent={'space-around'} alignItems={'center'} spacing={2}>
                             <DarkModeSwitch
